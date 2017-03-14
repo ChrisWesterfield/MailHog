@@ -2,9 +2,7 @@ FROM alpine:3.5
 RUN apk update
 RUN apk upgrade
 RUN apk --no-cache add ca-certificates
-RUN apk --no-cache add --virtual build-dependencies \
-    go \
-    git \
+RUN apk --no-cache add --virtual build-dependencies go git musl-dev \
   && mkdir -p /root/gocode \
   && export GOPATH=/root/gocode \
   && go get github.com/mailhog/MailHog \
